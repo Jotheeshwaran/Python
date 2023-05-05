@@ -1,32 +1,79 @@
-r2=int(input())
-c2=int(input())
-r1=0
-c1=0
-e=[]
-h=[]
-for i in range(r2):
-    t=[]
-    for j in range(c2):
-        x=int(input())
-        t.append(x)
-    e.append(t)
-while r1<r2 and c1<c2:
-    for i in range(c1,c2):
-        h.append(e[r1][i])
-    r1=r1+1
-    for j in range(r1,r2):
-        h.append(e[j][c2-1])
-    c2=c2-1
-    x=c2-1
-    if r1<r2:
-        while x>=c1:
-            h.append(e[r2-1][x])
-            x=x-1
-    r2=r2-1
-    y=r2-1
-    if c1<c2:
-        while y>=r1:
-            h.append(e[y][c1])
-            y=y-1
-    c1=c1+1
-print(h)
+#a=[[1,2,3],[4,5,6],[7,8,9]]
+#a=[[1,2,3,4],[5,6,7,8],[9,10,11,12],[13,14,15,16]]
+a=[[1,2,3,4,5],[6,7,8,9,10],[11,12,13,14,15],[16,17,18,19,20],[21,22,23,24,25]]
+t=0
+n=25
+r=c=5
+sr=sc=0                                     #Spiral Matrix - Anticlockwise - Method 1
+er=ec=r-1
+while t<n:
+    for i in range(ec,sc-1,-1):
+        print(a[sr][i],end=" ")
+        t+=1
+    sr+=1
+    if t==n:
+        break
+    for j in range(sr,er+1):
+        print(a[j][sc],end=" ")
+        t+=1
+    sc+=1
+    if t==n:
+        break
+    for k in range(sc,ec+1):
+        print(a[er][k],end=" ")
+        t+=1
+    er-=1
+    if t==n:
+        break
+    for l in range(er,sr-1,-1):
+        print(a[l][ec],end=" ")
+        t+=1
+    ec-=1
+    if t==n:
+        break
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+#a=[[1,2,3],[4,5,6],[7,8,9]]
+b=[[1,2,3,4],[5,6,7,8],[9,10,11,12],[13,14,15,16]]
+t=0                                             
+n=16
+r=c=4                                           #Spiral Matrix - Anticlockwise Direction - Method 2
+sr=sc=0
+er=ec=r-1
+a=[]
+for i in b:
+    i.reverse()
+    a.append(i)
+while t<n:
+    for i in range(sc,ec+1):
+        print(a[sr][i],end=" ")
+        t+=1
+    sr+=1
+    if t==n:
+        break
+    for j in range(sr,er+1):
+        print(a[j][ec],end=" ")
+        t+=1
+    ec-=1
+    if t==n:
+        break
+    for k in range(ec,sc-1,-1):
+        print(a[er][k],end=" ")
+        t+=1
+    er-=1
+    if t==n:
+        break
+    for l in range(er,sr-1,-1):
+        print(a[l][sc],end=" ")
+        t+=1
+    sc+=1
+    if t==n:
+        break
